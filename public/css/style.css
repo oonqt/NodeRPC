@@ -23,6 +23,12 @@
     padding-bottom: 20px;
 }
 
+#homepageUrl {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
 .settingsBtn {
     left: 50%;
 }
@@ -43,4 +49,36 @@
 
 [type="checkbox"].filled-in:checked+span:not(.lever):before {
     top: 3px;
+}
+
+/* Color overrides */
+.btn, .btn:hover, .btn:focus {
+    background-color: #7289da;
+}
+
+.input-field input:focus + label {
+    color: #7289DA !important;
+}
+
+.input-field input:focus {
+    border-bottom: 1px solid #7289DA !important;
+    box-shadow: 0 1px 0 0 #7289DA !important;
+}
+
+.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active {
+    color: #7289DA;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active, .tabs .tab a:hover  {
+    background-color: transparent;
+    color: rgb(93, 114, 187);
+}
+
+.tabs .indicator {
+    background-color: #7289DA;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    background-color: #7289DA;
+    border-color: #7289DA;
 }
