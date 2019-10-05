@@ -40,7 +40,7 @@
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    width: 35%;
+    width: 75%;
 }
 
 [type="checkbox"].filled-in:not(:checked)+span:not(.lever):after, [type="checkbox"].filled-in:checked+span:not(.lever):after {
