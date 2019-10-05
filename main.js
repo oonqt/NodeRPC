@@ -20,7 +20,7 @@ function startApp() {
     });
 
     mainWindow.webContents.on("dom-ready", () => {
-        mainWindow.webContents.send("infoData", { version, homepage, author, license })
+        mainWindow.webContents.send("data:info", { version, homepage, author, license })
     });
 
     mainWindow.once("ready-to-show", () => {
