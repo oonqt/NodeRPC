@@ -1,0 +1,46 @@
+#appearanceSettings {
+    margin-top: 15px;
+}
+
+#appearanceSettings .row {
+    margin-bottom: 0;
+}
+
+#appSettings {
+    margin-top: 45px;
+    text-align: center;
+}
+
+#appSettings .row {
+    margin-bottom: 35px;
+}
+
+#info {
+    text-align: center;
+}
+
+#info h2 {
+    padding-bottom: 20px;
+}
+
+.settingsBtn {
+    left: 50%;
+}
+
+.submitBtn {
+    position: absolute;
+    bottom: 0; 
+    margin-bottom: 25px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 35%;
+}
+
+[type="checkbox"].filled-in:not(:checked)+span:not(.lever):after, [type="checkbox"].filled-in:checked+span:not(.lever):after {
+    margin-top: 3px
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):before {
+    top: 3px;
+}

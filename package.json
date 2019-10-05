@@ -1,0 +1,24 @@
+{
+  "name": "NodeRPC",
+  "version": "1.0.0",
+  "description": "A Dicord Rich Presence client made in electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "rich presence",
+    "discord",
+    "rpc"
+  ],
+  "homepage": "https://github.com/oonqt/NodeRPC",
+  "author": "Luke C",
+  "license": "MIT",
+  "dependencies": {
+    "discord-rpc": "^3.1.0"
+  },
+  "devDependencies": {
+    "electron": "^6.0.11",
+    "electron-packager": "^14.0.6"
+  }
+}

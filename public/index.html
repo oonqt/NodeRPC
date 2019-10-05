@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NodeRPC</title>
+
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="row">
+        <ul class="tabs">
+            <li class="tab col s3"><a  href="#appearance">Appearance</a></li>
+            <li class="tab col s3"><a href="#settings">Settings</a></li>
+            <li class="tab col s3"><a class="active" href="#info">App Info</a></li>
+        </ul>
+    </div>
+
+    <div id="appearance" class="col s12">
+        <form id="appearanceSettings">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col s12 input-field">
+                        <input type="text" id="clientId" value="629882670763081749">
+                        <label for="clientId">Client ID</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6 input-field">
+                        <input type="text" id="state">
+                        <label for="state">State</label>
+                    </div>
+                    <div class="col s6 input-field">
+                        <input type="text" id="details">
+                        <label for="details">Details</label>
+                    </div>
+                </div>
+
+                <div class="row" style="margin: 15px 0 15px 0;">
+                    <div class="col s12">
+                        <label>
+                            <input type="checkbox" id="showTimestamp" class="filled-in" />
+                            <span>Show Timestamp</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6 input-field">
+                        <input type="text" id="smallImageKey">
+                        <label for="smallImageKey">Small Image Key</label>
+                    </div>
+                    
+                    <div class="col s6 input-field">
+                        <input type="text" id="smallImageText">
+                        <label for="smallImageText">Small Image Text</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6 input-field">
+                        <input type="text" id="largeImageKey">
+                        <label for="largeImageKey">Large Image Key</label>
+                    </div>
+                    
+                    <div class="col s6 input-field">
+                        <input type="text" id="largeImageText">
+                        <label for="largeImageText">Large Image Text</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="btn waves-effect waves-light submitBtn">Save</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div id="settings" class="col s12">
+        <form id="appSettings">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <label>
+                            <input type="checkbox" id="runAtStartup" class="filled-in" />
+                            <span>Run At Startup</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <label>
+                            <input type="checkbox" id="hideToTray" class="filled-in" />
+                            <span>Hide To Tray When Minimized</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button id="resetSettings" class="btn waves-effect waves-light">Reset To Defaults</button>
+                </div>
+
+                <div class="row">
+                    <button id="openLogs" class="btn waves-effect waves-light">Open Logs</button>
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="btn waves-effect waves-light submitBtn">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div id="info">
+        <div class="container">
+            <h2>NodeRPC</h2>
+
+            <h5 id="version">Version: {}</h5>
+            <h5 id="developer">Developed By: {}</h5>
+            <h5 id="license">License: {}</h5>
+            <h5 id="homepage">Homepage: {}</h5>
+        </div>
+    </div>
+
+    <script src="js/materialize.min.js"></script>
+    <script src="js/intializers.js"></script>
+    <script src="js/rpc.js"></script>
+</body>
+</html>
