@@ -13,11 +13,11 @@ class JsonDB {
         }
     }
 
-    save(data) {
+    save(objectData) {
         if(!fs.existsSync(this.dbfile)) {
-            fs.writeFileSync(this.dbfile, JSON.stringify(data));
+            fs.writeFileSync(this.dbfile, JSON.stringify(objectData));
         } else {
-            fs.appendFileSync(this.dbfile, JSON.stringify(data));
+            fs.appendFileSync(this.dbfile, JSON.stringify({ ...this.data, ...objectData}));
         }
     }
 }
