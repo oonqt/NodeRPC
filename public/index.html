@@ -12,16 +12,15 @@
 <body>
     <div class="row">
         <ul class="tabs">
-            <li class="tab col s3"><a  href="#appearance">Appearance</a></li>
+            <li class="tab col s3"><a class="active" href="#appearance">Appearance</a></li>
             <li class="tab col s3"><a href="#settings">Settings</a></li>
-            <li class="tab col s3"><a class="active" href="#info">App Info</a></li>
+            <li class="tab col s3"><a href="#info">App Info</a></li>
         </ul>
     </div>
 
     <div id="appearance" class="col s12">
         <form id="appearanceSettings">
             <div class="container">
-
                 <div class="row">
                     <div class="col s12 input-field">
                         <input type="text" id="clientId" value="629882670763081749">
@@ -76,7 +75,6 @@
                 <div class="row">
                     <button type="submit" class="btn waves-effect waves-light submitBtn">Save</button>
                 </div>
-
             </div>
         </form>
     </div>
@@ -121,10 +119,10 @@
         <div class="container">
             <h2>NodeRPC</h2>
 
-            <h5 id="version">Version: {}</h5>
             <h5 id="developer">Developed By: {}</h5>
+            <h5 id="version">Version: {}</h5>
             <h5 id="license">License: {}</h5>
-            <h5 id="homepage">Homepage: {}</h5>
+            <a id="homepageUrl">{}</a>
         </div>
     </div>
 
