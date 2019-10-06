@@ -13,6 +13,10 @@ class JsonDB {
         }
     }
 
+    delete() {
+        fs.unlinkSync(this.dbfile);
+    }
+
     save(data) {
         fs.writeFileSync(this.dbfile, JSON.stringify({ ...this.data, ...data }));
     }
