@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog, ipcMain } = require("electron");
+const { app, BrowserWindow, dialog, ipcMain, shell } = require("electron");
 const path = require("path");
 const Logger = require("./utils/logger");
 const startupHandler = require("./utils/startupHandler");
@@ -29,7 +29,11 @@ function startApp() {
 
     mainWindow.webContents.on("dom-ready", () => {
         mainWindow.webContents.send("data:info", { version, homepage, author, license });
-        mainWindow.webContents.send("data:settings", db.data);
+
+        let data = db.data
+        data.runAtStartup = startup.isEnabled;
+
+        mainWindow.webContents.send("data:settings", data );
     });
 
     mainWindow.once("ready-to-show", () => {
@@ -40,13 +44,32 @@ function startApp() {
 }
 
 ipcMain.on("settings:app", ({}, data) => {
+    if(data.runAtStartup) {
+        startup.enable();
+    } else {
+        startup.disable();
+    }
+
+    delete data.runAtStartup;
+
     db.save(data);
-    dialog.showMessageBox(mainWindow, { type: "info", detail: "Saved settings" });
+    dialog.showMessageBox(mainWindow, { type: "info", detail: "Saved Settings" });
 });
 
 ipcMain.on("settings:appearance", ({}, data) => {
     db.save(data);
-    dialog.showMessageBox(mainWindow, { type: "info", detail: "Saved settings" });
+
+    dialog.showMessageBox(mainWindow, { type: "info", detail: "Saved Settings" });
+});
+
+ipcMain.on("settings:clear", () => {
+    db.delete();
+
+    dialog.showMessageBox(mainWindow, { type: "info", detail: "Wiped Settings" });
+});
+
+ipcMain.on("settings:clear", () => {
+   shell.openItem(logger.logPath);
 });
 
 app.once("ready", startApp);

@@ -9,12 +9,17 @@ ipcRenderer.on("data:info", ({}, data) => {
     document.getElementById("homepageUrl").setAttribute("href", data.homepage);
 });
 
-ipcMain.on("data:appearance", ({}, data) => {
-
-});
-
 ipcRenderer.on("data:settings", ({}, data) => {
-
+    document.getElementById("runAtStartup").checked = data.runAtStartup;
+    document.getElementById("hideToTray").checked = data.hideToTray;
+    document.getElementById("clientId").value;
+    document.getElementById("state").value;
+    document.getElementById("details").value;
+    document.getElementById("showTimestamp").checked;
+    document.getElementById("smallImageKey").value;
+    document.getElementById("smallImageText").value;
+    document.getElementById("largeImageKey").value;
+    document.getElementById("largeImageText").value;
 });
 
 document.getElementById("homepageUrl").addEventListener("click", e => {
@@ -34,5 +39,22 @@ document.getElementById("appearanceSettings").addEventListener("submit", e => {
     let largeImageKey = document.getElementById("largeImageKey").value;
     let largeImageText = document.getElementById("largeImageText").value;
 
+    ipcRenderer.send("settings:appearance", { clientId, state, details, showTimestamp, smallImageKey, smallImageText, largeImageKey, largeImageText });
+});
 
+document.getElementById("appSettings").addEventListener("submit", e => {
+    e.preventDefault();
+    
+    let runAtStartup = document.getElementById("runAtStartup").checked;
+    let hideToTray = document.getElementById("hideToTray").checked;
+    
+    ipcRenderer.send("settings:app", { runAtStartup, hideToTray });
+});
+
+document.getElementById("resetSettings").addEventListener("click", () => {
+    ipcRenderer.send("settings:reset");
+});
+
+document.getElementById("openLogs").addEventListener("click", () => {
+    ipcRenderer.send("logs:open");
 });
